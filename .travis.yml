@@ -5,7 +5,8 @@ services:
 before_install:
   - docker build -t fschettini/docker-react -f Dockerfile.dev .      
 
-#script:
+script:
+  - docker run -e CI=true fschettini/docker-react npm run test -- --watchAll=false
 #  - docker run fschettini/docker-react npm run test -- --coverage 
 
 deploy: 
